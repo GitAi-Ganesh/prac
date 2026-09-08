@@ -1,15 +1,24 @@
-name: my-workflow
+name: System Info Test
 
 on:
   workflow_dispatch:
 
 jobs:
-  first-job:
+  system-info:
     runs-on: ubuntu-latest
 
     steps:
-      - name: first-step
-        run: echo "Hello World"
+      - name: Print greeting
+        run: echo "Hello Ganesh! GitHub Actions is running."
 
-      - name: second-step
-        run: echo "This is the second step of the workflow"
+      - name: Show current date
+        run: date
+
+      - name: Show current directory
+        run: pwd
+
+      - name: List files
+        run: ls -la
+
+      - name: Show OS details
+        run: uname -a
