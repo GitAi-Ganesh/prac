@@ -1,24 +1,18 @@
-name: System Info Test
-
-on:
-  workflow_dispatch:
-
+name : my_workflow
+on: workflow_dispatch
 jobs:
-  system-info:
+  first_job:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Print greeting
-        run: echo "Hello Ganesh! GitHub Actions is running."
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Show current date
-        run: date
-
-      - name: Show current directory
-        run: pwd
-
-      - name: List files
-        run: ls -la
-
-      - name: Show OS information
-        run: uname -a
+      - name: Run a script
+        run: echo "Hello, World!"
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test-step
+        run: echo "This is a test step"
+      - name: test-code
+        uses: actions/checkout@v6
