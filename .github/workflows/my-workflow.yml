@@ -20,5 +20,5 @@ jobs:
       - name: List files
         run: ls -la
 
-      - name: Show OS details
+      - name: Show OS information
         run: uname -a
