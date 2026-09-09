@@ -54,3 +54,12 @@ jobs:
         with:
           name: python-package
           path: dist/
+      - name: Notify Slack
+        if: always()
+        continue-on-error: true
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_TITLE: "Python-CI"
+          SLACK_MESSAGE: "Workflow '${{ github.workflow }}' finished with status '${{ job.status }}'on branch '${{ github.ref_name }}'. Commit: '${{ github.sha }}'. Triggered by '${{ github.actor }}'."
